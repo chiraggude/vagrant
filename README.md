@@ -27,7 +27,7 @@ vagrant up
 * **Restart VM**: vagrant reload
 
 
-## Turizon Vagrant Boxes
+## Vagrant Boxes
 ### TZVM [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
 * Centos 6.5 64bit
 * NGINX 
