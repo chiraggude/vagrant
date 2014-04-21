@@ -38,9 +38,10 @@ vagrant up
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 2GB
 
 #### Extra Tools
-* Adminer: http://127.0.0.1:8082
 * PHP Info: http://127.0.0.1:8080
 * Linux Dashboard: http://127.0.0.1:8081
+* Adminer: http://127.0.0.1:8082
+* Adminer Editor: http://127.0.0.1:8083
 
 #### Web Apps
 * App 0: http://127.0.0.1:7000
