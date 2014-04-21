@@ -40,7 +40,7 @@ vagrant up
 #### VM Info
 * PHP Info: http://127.0.0.1:8080
 * Linux Dashboard: http://127.0.0.1:8081
-*
+
 #### DB Tools
 * Adminer: http://127.0.0.1:8082   (user: root | password: vagrant)
 * Adminer Editor: http://127.0.0.1:8083    (user: root | password: vagrant)
