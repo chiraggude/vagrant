@@ -15,6 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	
 	# Adminer
    	 config.vm.network :forwarded_port, guest: 8082, host: 8082
+	 
+	# Adminer Editor
+   	 config.vm.network :forwarded_port, guest: 8083, host: 8083
 	
 	# App 0
 	 config.vm.network :forwarded_port, guest: 7000, host: 7000
