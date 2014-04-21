@@ -60,5 +60,6 @@ vagrant up
 #### Additional Vagrant Commands
 * **Add to Vagrant Box List**: vagrant box add tzvm tzvm.box
 * **View Box List**: vagrant box list
+* **Destroy VM**: vagrant destroy
 * **Remove from Vagrant Box List**: vagrant box remove tzvm
 * **Provision VM**: vagrant provision
