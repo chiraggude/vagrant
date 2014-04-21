@@ -33,15 +33,17 @@ vagrant up
 * NGINX 
 * MariaDB 10
 * PHP-FPM 5.6 
-* Built with Packer 0.5.2, Vagrant 1.5.2, VirtualBox 4.3.10
-* Provisioned by Puppet 3.4.3
-* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 2GB
+* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
+* Provisioned by Puppet 3.5.1
+* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
-#### Extra Tools
+#### VM Info
 * PHP Info: http://127.0.0.1:8080
 * Linux Dashboard: http://127.0.0.1:8081
-* Adminer: http://127.0.0.1:8082
-* Adminer Editor: http://127.0.0.1:8083
+*
+#### DB Tools
+* Adminer: http://127.0.0.1:8082   (user: root | password: vagrant)
+* Adminer Editor: http://127.0.0.1:8083    (user: root | password: vagrant)
 
 #### Web Apps
 * App 0: http://127.0.0.1:7000
