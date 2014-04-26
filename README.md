@@ -28,9 +28,9 @@ vagrant up
 
 
 ## Vagrant Boxes
-### TZVM [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
+### TZVM 1.0.6 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
 * Centos 6.5 64bit
-* NGINX 
+* NGINX 1.6
 * MariaDB 10
 * PHP-FPM 5.6 
 * Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
@@ -45,11 +45,8 @@ vagrant up
 * Adminer: http://127.0.0.1:8082   (user: root | password: vagrant)
 * Adminer Editor: http://127.0.0.1:8083    (user: root | password: vagrant)
 
-#### Web Apps
-* App 0: http://127.0.0.1:7000
-* App 1: http://127.0.0.1:7001
-* App 2: http://127.0.0.1:7002
-* App 3: http://127.0.0.1:7003
+#### Project (/vagrant/project)
+* http://127.0.0.1:7000
 
 #### SSH & SFTP Info
 * Host: 127.0.0.1
