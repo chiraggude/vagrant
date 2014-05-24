@@ -7,6 +7,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      config.vm.box = "tzvm"
 	 config.vm.host_name = "tzvm.dev"
 	 
+	# Private IP for VM's  in a local network
+	 config.vm.network :private_network, ip: "192.168.33.10"
+	 
 	# PHP Info
      config.vm.network :forwarded_port, guest: 80, host: 8080
 	
@@ -23,15 +26,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	 config.vm.network :forwarded_port, guest: 7000, host: 7000
 	 
 	 
-	 
 	# Project Folder
-	# config.vm.synced_folder "project", "/home/www/app0", owner: "root", group: "root"	
+	 config.vm.synced_folder "project", "/home/www/project", owner: "root", group: "root"	
 	
 	# Run shell script to install puppet
 	# config.vm.provision "shell", path: "bootstrap.sh"
 	
-	# Private IP for VM's  in a local network
-	# config.vm.network :private_network, ip: "192.168.33.10"
 	
     # Puppet Provisioner setup
     # config.vm.provision :puppet do |puppet|
