@@ -28,25 +28,22 @@ vagrant up
 
 
 ## Vagrant Boxes
-### TZVM 1.0.6 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
-* Centos 6.5 64bit
+### TZVM 1.1 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
+* Centos 6.5 x86_x64
 * NGINX 1.6
 * MariaDB 10
 * PHP-FPM 5.6 
-* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
+* Built with Packer 0.6.2, Vagrant 1.6.3, VirtualBox 4.3.12
 * Provisioned by Puppet 3.5.1
-* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
+* VirtualBox VM - OS: CentOS 6.5 x86_x64, CPU: 2 Core, RAM: 640MB, HDD: 3GB
 
-#### VM Info
-* PHP Info: http://127.0.0.1:8080
+#### Tools
 * Linux Dashboard: http://127.0.0.1:8081
-
-#### DB Tools
 * Adminer: http://127.0.0.1:8082   (user: root | password: vagrant)
 * Adminer Editor: http://127.0.0.1:8083    (user: root | password: vagrant)
 
-#### Project (/vagrant/project)
-* http://127.0.0.1:7000
+#### Project (/home/www)
+* http://192.168.33.10
 
 #### SSH & SFTP Info
 * Host: 127.0.0.1
