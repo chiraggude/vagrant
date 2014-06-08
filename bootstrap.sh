@@ -14,6 +14,7 @@ else
     echo "Composer already Installed"
 fi
 
+
 if which git > /dev/null 2>&1;
 then
     echo "Git already Installed"
