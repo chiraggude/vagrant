@@ -2,28 +2,26 @@
 # 2> means "redirect standard-error" to the given file.
 # /dev/null is the null file. Anything written to it is discarded.
 
-set -e
 
-REPO_URL="http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-10.noarch.rpm"
-
-if [ "$EUID" -ne "0" ]; then
-  echo "This script must be run as root." >&2
-  exit 1
+if which composer > /dev/null 2>&1; 
+then
+    # Install Composer
+	cd /tmp 
+	curl -sS https://getcomposer.org/installer | php 
+	mv composer.phar /usr/local/bin/composer
+	echo "Composer installed!"
+else
+    echo "Composer already Installed"
 fi
 
-if which puppet > /dev/null 2>&1; then
-  echo "Puppet is already installed."
-  exit 0
+if which git > /dev/null 2>&1;
+then
+    echo "Git already Installed"
+else
+    # Install Git
+	rpm -ivh http://opensource.wandisco.com/centos/6/git/i686/wandisco-git-release-6-1.noarch.rpm
+	yum -y install git 
+	echo "Git installed!"
 fi
 
-# Install puppet labs repo
-echo "Configuring PuppetLabs repo..."
-repo_path=$(mktemp)
-wget --output-document="${repo_path}" "${REPO_URL}" 2>/dev/null
-rpm -i "${repo_path}" >/dev/null
 
-# Install Puppet...
-echo "Installing puppet..."
-yum install -y puppet > /dev/null
-
-echo "Puppet installed!"

@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	
 	
 	# Run shell script to install puppet
-	# config.vm.provision "shell", path: "bootstrap.sh"	
+	config.vm.provision "shell", path: "bootstrap.sh"	
 	
     # Puppet Provisioner setup
     # config.vm.provision :puppet do |puppet|
