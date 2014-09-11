@@ -9,7 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	 config.vm.host_name = "tzvm.dev"
 	 
 	# Private IP for VM to access via browser locally ( maps to port 80)
-	 config.vm.network :private_network, ip: "192.168.33.10"	 
+	 config.vm.network :private_network, ip: "192.168.33.10"
+	 config.vm.network :private_network, ip: "192.168.33.11"
 		
     
 	# Linux Dashboard
@@ -23,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	
 	
 	# Project Folder
-	 config.vm.synced_folder "project", "/home/www/project", owner: "root", group: "root"	
+	 config.vm.synced_folder "project", "/project", owner: "root", group: "root"	
 	
 	
 	# Run shell script to install puppet
