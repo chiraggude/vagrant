@@ -1,28 +1,31 @@
-# This bootstraps Puppet on CentOS 6.x  https://github.com/hashicorp/puppet-bootstrap
+#!/bin/bash
 # 2> means "redirect standard-error" to the given file.
 # /dev/null is the null file. Anything written to it is discarded.
 
 
-if which composer > /dev/null 2>&1; 
+if which node >/dev/null 2>&1; 
 then
-    # Install Composer
-	cd /tmp 
-	curl -sS https://getcomposer.org/installer | php 
-	mv composer.phar /usr/local/bin/composer
-	echo "Composer installed!"
+	echo "Node and NPM already Installed"	
 else
-    echo "Composer already Installed"
+	yum -y install nodejs
+	yum -y install npm	
+	echo "Node and NPM installed!"	    
 fi
 
 
-if which git > /dev/null 2>&1;
+if which bower >/dev/null 2>&1; 
 then
-    echo "Git already Installed"
+	echo "Bower already Installed"			
 else
-    # Install Git
-	rpm -ivh http://opensource.wandisco.com/centos/6/git/i686/wandisco-git-release-6-1.noarch.rpm
-	yum -y install git 
-	echo "Git installed!"
+    npm install -g bower 
+	echo "Bower installed!"
 fi
 
 
+if which gulp >/dev/null 2>&1; 
+then
+	echo "Gulp already Installed"	
+else	
+    npm install -g gulp 
+	echo "Gulp installed!"
+fi

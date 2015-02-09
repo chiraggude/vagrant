@@ -9,18 +9,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	 config.vm.host_name = "tzvm.dev"
 	 
 	# Private IP for VM to access via browser locally ( maps to port 80)
-	 config.vm.network :private_network, ip: "192.168.33.10"
-	 config.vm.network :private_network, ip: "192.168.33.11"
+	 config.vm.network :private_network, ip: "192.168.10.10"	 
+	 config.vm.network :private_network, ip: "192.168.10.11"
 		
     
-	# Linux Dashboard
-   	 config.vm.network :forwarded_port, guest: 8081, host: 8081
-	
 	# Adminer
-   	 config.vm.network :forwarded_port, guest: 8082, host: 8082
-	 
-	# Adminer Editor
-   	 config.vm.network :forwarded_port, guest: 8083, host: 8083
+   	 config.vm.network :forwarded_port, guest: 8081, host: 8082
+	
+	# Linux Dashboard
+   	 config.vm.network :forwarded_port, guest: 8082, host: 8081
 	
 	
 	# Project Folder
