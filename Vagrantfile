@@ -8,10 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	 
 	 config.vm.host_name = "tzvm.dev"
 	 
-	# Private IP for VM to access via browser locally ( maps to port 80)
+	# Primary IP to access via browser locally ( maps to port 80)
 	 config.vm.network :private_network, ip: "192.168.10.10"	 
-	 config.vm.network :private_network, ip: "192.168.10.11"
-		
+	 
+	# Secondary IP to access via browser locally ( maps to port 80)
+	 config.vm.network :private_network, ip: "192.168.10.11"		
     
 	# Adminer
    	 config.vm.network :forwarded_port, guest: 8081, host: 8082
@@ -19,12 +20,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Linux Dashboard
    	 config.vm.network :forwarded_port, guest: 8082, host: 8081
 	
-	
 	# Project Folder
-	 config.vm.synced_folder "project", "/project", owner: "root", group: "root"	
+	 config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: 1	
 	
-	
-	# Run shell script to install puppet
+	# Run shell script to install dev tools
 	config.vm.provision "shell", path: "bootstrap.sh"	
 	
     # Puppet Provisioner setup
@@ -32,7 +31,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	#	puppet.manifests_path = "puppet/manifests"
 	#	puppet.module_path = "puppet/modules"
 	#	puppet.manifest_file  = "init.pp"
-	# end   
-
+	# end
+	
+	# Provide correct file path to Rsync (Cygwin)
+	ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
+	
+	# Customize VM hardware specifications
+	config.vm.provider "virtualbox" do |vb|
+		vb.memory = 2048
+		vb.cpus = 3
+	end
 
 end
