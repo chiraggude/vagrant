@@ -18,13 +18,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    	 config.vm.network :forwarded_port, guest: 8081, host: 8082
 	
 	# Linux Dashboard
-   	 config.vm.network :forwarded_port, guest: 8082, host: 8081
+   	 config.vm.network :forwarded_port, guest: 8082, host: 8081	 
 	
 	# Project Folder
-	 config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: 1	
+	 config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: "true"
 	
 	# Run shell script to install dev tools
-	config.vm.provision "shell", path: "bootstrap.sh"	
+	 config.vm.provision "shell", path: "bootstrap.sh"	
 	
     # Puppet Provisioner setup
     # config.vm.provision :puppet do |puppet|
@@ -37,9 +37,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
 	
 	# Customize VM hardware specifications
-	config.vm.provider "virtualbox" do |vb|
-		vb.memory = 2048
-		vb.cpus = 3
-	end
+	# config.vm.provider "virtualbox" do |vb|
+	#	vb.memory = 2048
+	#	vb.cpus = 3
+	# end
 
 end
