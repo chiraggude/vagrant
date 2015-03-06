@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :forwarded_port, guest: 8082, host: 8081
 
 	# Project Folder
-	config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: "true"
+	config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: "true", rsync__args: ["--verbose", "--archive", "-z", "--copy-links"]
 	
 	# Run shell script to install dev tools
 	config.vm.provision "shell", path: "bootstrap.sh"	
