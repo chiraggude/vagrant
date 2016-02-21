@@ -4,34 +4,24 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-	config.vm.box = "tzvm"
+	config.vm.box = "zhvm"
 
-	config.vm.host_name = "tzvm.dev"
+	config.vm.host_name = "zh-development"
 
 	# Primary IP to access via browser locally ( maps to port 80)
 	config.vm.network :private_network, ip: "192.168.10.10"
 
-	# Secondary IP to access via browser locally ( maps to port 80)
-	config.vm.network :private_network, ip: "192.168.10.11"
+	# Linux Dashboard
+	config.vm.network :forwarded_port, guest: 8081, host: 8081
 
 	# Adminer
-	config.vm.network :forwarded_port, guest: 8081, host: 8082
+	config.vm.network :forwarded_port, guest: 8082, host: 8082
 
-	# Linux Dashboard
-	config.vm.network :forwarded_port, guest: 8082, host: 8081
+	# Sync folder	
+	config.vm.synced_folder "home/zephop", "/home/zephop", owner: "nginx", group: "nginx", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--copy-links"]
 
-	# Project Folder
-	config.vm.synced_folder "projects", "/projects", owner: "nginx", group: "nginx", type: "rsync", rsync__auto: "true", rsync__args: ["--verbose", "--archive", "-z", "--copy-links"]
-
-	# Run shell script to install dev tools
-	config.vm.provision "shell", path: "bootstrap.sh"
-
-    # Puppet Provisioner setup
-    # config.vm.provision :puppet do |puppet|
-	#	puppet.manifests_path = "puppet/manifests"
-	#	puppet.module_path = "puppet/modules"
-	#	puppet.manifest_file  = "init.pp"
-	# end
+	# Provision extra Dev tools
+	# config.vm.provision "shell", path: "bootstrap.sh"
 
 	# Provide correct file path to Rsync (Cygwin)
 	ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
