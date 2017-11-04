@@ -11,10 +11,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Primary IP to access via browser locally ( maps to port 80)
 	config.vm.network :private_network, ip: "192.168.10.10"
 
-	# Linux Dashboard
+	# Zephop (127.0.0.1:8080)	
+	config.vm.network :forwarded_port, guest: 80, host: 8080
+
+	# Linux Dashboard (127.0.0.1:8081)	
 	config.vm.network :forwarded_port, guest: 8081, host: 8081
 
-	# Adminer
+	# Adminer (127.0.0.1:8082)	
 	config.vm.network :forwarded_port, guest: 8082, host: 8082
 
 	# Sync folder	
